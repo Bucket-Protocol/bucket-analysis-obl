@@ -1,0 +1,8078 @@
+[
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "bkt",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "buck"
+			}
+		],
+		"structs": {
+			"BKT": {
+				"abilities": {
+					"abilities": [
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "dummy_field",
+						"type": "Bool"
+					}
+				]
+			},
+			"BktAdminCap": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			},
+			"BktTreasury": {
+				"abilities": {
+					"abilities": [
+						"Key"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "eco_part",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bkt",
+											"name": "BKT",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "bkt_supply",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Supply",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bkt",
+											"name": "BKT",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"collect_bkt": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"get_eco_part_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"release_bkt": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "bottle",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "bucket"
+			}
+		],
+		"structs": {
+			"Bottle": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					},
+					{
+						"name": "stake_amount",
+						"type": "U64"
+					},
+					{
+						"name": "reward_coll_snapshot",
+						"type": "U128"
+					},
+					{
+						"name": "reward_debt_snapshot",
+						"type": "U128"
+					}
+				]
+			},
+			"BottleTable": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "table",
+						"type": {
+							"Struct": {
+								"address": "0xdb9a10bb9536ab367b7d1ffa404c1d6c55f009076df1139dc108dd86608bbe",
+								"module": "linked_table",
+								"name": "LinkedTable",
+								"typeArguments": [
+									"Address",
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bottle",
+											"name": "Bottle",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "total_stake",
+						"type": "U64"
+					},
+					{
+						"name": "total_stake_snapshot",
+						"type": "U64"
+					},
+					{
+						"name": "total_collateral_snapshot",
+						"type": "U64"
+					},
+					{
+						"name": "debt_per_unit_stake",
+						"type": "U128"
+					},
+					{
+						"name": "reward_per_unit_stake",
+						"type": "U128"
+					},
+					{
+						"name": "last_reward_error",
+						"type": "U128"
+					},
+					{
+						"name": "last_debt_error",
+						"type": "U128"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"borrow_bottle": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			},
+			"borrow_bottle_mut": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			},
+			"borrow_table": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xdb9a10bb9536ab367b7d1ffa404c1d6c55f009076df1139dc108dd86608bbe",
+								"module": "linked_table",
+								"name": "LinkedTable",
+								"typeArguments": [
+									"Address",
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bottle",
+											"name": "Bottle",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"bottle_exists": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"cr_greater": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"cr_less_or_equal": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"destroy_bottle": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": []
+			},
+			"destroy_surplus_bottle": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bottle",
+							"name": "Bottle",
+							"typeArguments": []
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_bottle_info": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_bottle_info_after_update": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_bottle_info_by_debtor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_bottle_raw_info": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_bottle_raw_info_by_debator": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_lowest_cr_debtor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					}
+				]
+			},
+			"get_pending_coll": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_pending_debt": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_table_length": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"insert": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address",
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bottle",
+							"name": "Bottle",
+							"typeArguments": []
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"new": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bottle",
+							"name": "Bottle",
+							"typeArguments": []
+						}
+					}
+				]
+			},
+			"new_table": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bottle",
+							"name": "BottleTable",
+							"typeArguments": []
+						}
+					}
+				]
+			},
+			"pop_front": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"Address",
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bottle",
+							"name": "Bottle",
+							"typeArguments": []
+						}
+					}
+				]
+			},
+			"re_insert": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": []
+			},
+			"record_borrow": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					"U64",
+					"U64"
+				],
+				"return": []
+			},
+			"record_redeem": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					"U64"
+				],
+				"return": []
+			},
+			"record_redistribution": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					"U64",
+					"Address"
+				],
+				"return": []
+			},
+			"record_repay": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					"U64",
+					"Bool"
+				],
+				"return": [
+					"Bool",
+					"U64"
+				]
+			},
+			"record_repay_capped": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					"U8"
+				],
+				"return": [
+					"Bool",
+					"U64"
+				]
+			},
+			"record_top_up": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": []
+			},
+			"remove_bottle": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bottle",
+							"name": "Bottle",
+							"typeArguments": []
+						}
+					}
+				]
+			},
+			"remove_bottle_stake": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": []
+			},
+			"update_snapshot": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": []
+			},
+			"update_stake_and_total_stake": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"update_stake_and_total_stake_by_debtor": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": []
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "buck",
+		"friends": [],
+		"structs": {
+			"AdminCap": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			},
+			"BUCK": {
+				"abilities": {
+					"abilities": [
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "dummy_field",
+						"type": "Bool"
+					}
+				]
+			},
+			"BucketProtocol": {
+				"abilities": {
+					"abilities": [
+						"Key"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "version",
+						"type": "U64"
+					},
+					{
+						"name": "buck_treasury_cap",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "coin",
+								"name": "TreasuryCap",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "buck",
+											"name": "BUCK",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "min_bottle_size",
+						"type": "U64"
+					}
+				]
+			},
+			"BucketType": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop",
+						"Store"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "dummy_field",
+						"type": "Bool"
+					}
+				]
+			},
+			"TankType": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop",
+						"Store"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "dummy_field",
+						"type": "Bool"
+					}
+				]
+			},
+			"WellType": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop",
+						"Store"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "dummy_field",
+						"type": "Bool"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"borrow": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					"U64",
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				]
+			},
+			"borrow_bucket": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"borrow_tank": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "buck",
+											"name": "BUCK",
+											"typeArguments": []
+										}
+									},
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"borrow_tank_mut": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "buck",
+											"name": "BUCK",
+											"typeArguments": []
+										}
+									},
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"borrow_well": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"borrow_well_mut": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"compute_base_rate_fee": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"create_bucket": {
+				"visibility": "Public",
+				"isEntry": true,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "AdminCap",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					"U64",
+					"U8",
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"U64"
+							]
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"flash_borrow": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bucket",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"flash_borrow_buck": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								},
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"flash_repay": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bucket",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"flash_repay_buck": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								},
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"get_bottle_info_by_debtor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_min_bottle_size": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"is_liquidatable": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"liquidate_under_normal_mode": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"liquidate_under_recovery_mode": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"redeem": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"release_bkt": {
+				"visibility": "Public",
+				"isEntry": true,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "AdminCap",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": []
+			},
+			"repay": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"tank_withdraw": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "ContributorToken",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								},
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "buck",
+										"name": "BUCK",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				]
+			},
+			"top_up": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					"Address",
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"update_max_mint_amount": {
+				"visibility": "Public",
+				"isEntry": true,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "AdminCap",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"U64"
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"update_min_bottle_size": {
+				"visibility": "Public",
+				"isEntry": true,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "AdminCap",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": []
+			},
+			"update_protocol_version": {
+				"visibility": "Public",
+				"isEntry": true,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "AdminCap",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64"
+				],
+				"return": []
+			},
+			"withdraw_surplus_collateral": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "buck",
+								"name": "BucketProtocol",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "buck_events",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "buck"
+			}
+		],
+		"structs": {
+			"BuckBurnt": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"BuckMinted": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"CollateralDecreased": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"CollateralIncreased": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"FlashLoan": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "coin_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "amount",
+						"type": "U64"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"emit_buck_burnt": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_buck_minted": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_collateral_decreased": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_collateral_increased": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_flash_loan": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "bucket",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "buck"
+			}
+		],
+		"structs": {
+			"Bucket": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "min_collateral_ratio",
+						"type": "U64"
+					},
+					{
+						"name": "recovery_mode_threshold",
+						"type": "U64"
+					},
+					{
+						"name": "collateral_decimal",
+						"type": "U8"
+					},
+					{
+						"name": "max_mint_amount",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "option",
+								"name": "Option",
+								"typeArguments": [
+									"U64"
+								]
+							}
+						}
+					},
+					{
+						"name": "collateral_vault",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "bottle_table",
+						"type": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "surplus_bottle_table",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "table",
+								"name": "Table",
+								"typeArguments": [
+									"Address",
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bottle",
+											"name": "Bottle",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "minted_buck_amount",
+						"type": "U64"
+					},
+					{
+						"name": "base_fee_rate",
+						"type": "U64"
+					},
+					{
+						"name": "latest_redemption_time",
+						"type": "U64"
+					},
+					{
+						"name": "total_flash_loan_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"FlashReceipt": {
+				"abilities": {
+					"abilities": []
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "amount",
+						"type": "U64"
+					},
+					{
+						"name": "fee",
+						"type": "U64"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"borrow_bottle_table": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "BottleTable",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			},
+			"borrow_surplus_bottle_table": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "table",
+								"name": "Table",
+								"typeArguments": [
+									"Address",
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bottle",
+											"name": "Bottle",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"bottle_exists": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"compute_base_rate": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"U64"
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_bottle_icr": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_bottle_info": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_bottle_info_by_debtor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_bottle_table_length": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_bucket_size": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_bucket_tcr": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_collateral_vault_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_lowest_cr_debtor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					}
+				]
+			},
+			"get_max_mint_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"U64"
+							]
+						}
+					}
+				]
+			},
+			"get_minimum_collateral_ratio": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_minted_buck_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_receipt_info": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "FlashReceipt",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_surplus_bottle_info_by_debtor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_surplus_bottle_table_size": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_surplus_collateral_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_total_flash_loan_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"handle_borrow": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					"U64",
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					},
+					"U64",
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"handle_flash_borrow": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"U64"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bucket",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"handle_flash_repay": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bucket",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"handle_redeem": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					"U64",
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"handle_redistribution": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"handle_repay": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"Address",
+					"U64",
+					"U64",
+					"Bool"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"handle_repay_capped": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"Address",
+					"U64",
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"handle_top_up": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					"Address",
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"Address"
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"has_liquidatable_bottle": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"is_healthy_bottle": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"is_in_recovery_mode": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"is_liquidatable": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xf145ee6d09aae034924f80672bc76db2415dfd1b1bed863ac289af9d94e2c4fc",
+								"module": "bucket_oracle",
+								"name": "BucketOracle",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					"Address"
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"is_not_locked": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"new": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64",
+					"U64",
+					"U8",
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"U64"
+							]
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "bucket",
+							"name": "Bucket",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"update_base_rate_fee": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"U64",
+					"U64"
+				],
+				"return": []
+			},
+			"update_max_mint_amount": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x1",
+							"module": "option",
+							"name": "Option",
+							"typeArguments": [
+								"U64"
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"update_snapshot": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"withdraw_surplus_collateral": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bucket",
+								"name": "Bucket",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "bucket_events",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "bucket"
+			}
+		],
+		"structs": {
+			"BottleCreated": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "debtor",
+						"type": "Address"
+					},
+					{
+						"name": "bottle_id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "ID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"BottleDestroyed": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "debtor",
+						"type": "Address"
+					},
+					{
+						"name": "bottle_id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "ID",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			},
+			"BottleUpdated": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "debtor",
+						"type": "Address"
+					},
+					{
+						"name": "bottle_id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "ID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"FeeRateChanged": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "base_fee_rate",
+						"type": "U64"
+					}
+				]
+			},
+			"Redeem": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "input_buck_amount",
+						"type": "U64"
+					},
+					{
+						"name": "output_collateral_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"Redistribution": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			},
+			"SurplusBottleGenerated": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "debtor",
+						"type": "Address"
+					},
+					{
+						"name": "bottle_id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "ID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"SurplusBottleWithdrawal": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "collateral_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "debtor",
+						"type": "Address"
+					},
+					{
+						"name": "bottle_id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "ID",
+								"typeArguments": []
+							}
+						}
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"emit_bottle_created": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"Address",
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"emit_bottle_destroyed": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"Address",
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"emit_bottle_updated": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"Address",
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"emit_fee_rate_changed": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_redeem": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64",
+					"U64"
+				],
+				"return": []
+			},
+			"emit_redistribution": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [],
+				"return": []
+			},
+			"emit_surplus_bottle_generated": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"Address",
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			},
+			"emit_surplus_bottle_withdrawal": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"Address",
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bottle",
+								"name": "Bottle",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": []
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "constants",
+		"friends": [],
+		"structs": {},
+		"exposedFunctions": {
+			"buck_decimal": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U8"
+				]
+			},
+			"decay_factor_precision": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"decimal_factor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"distribution_precision": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U128"
+				]
+			},
+			"fee_precision": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"flash_loan_fee": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"liquidation_rebate": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"max_fee": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"max_lock_time": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"max_u64": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"min_fee": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"min_lock_time": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"minute_decay_factor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"p_initial_value": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			},
+			"scale_factor": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [],
+				"return": [
+					"U64"
+				]
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "tank",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "buck"
+			}
+		],
+		"structs": {
+			"ContributorToken": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					},
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "deposit_amount",
+						"type": "U64"
+					},
+					{
+						"name": "start_p",
+						"type": "U64"
+					},
+					{
+						"name": "start_s",
+						"type": "U64"
+					},
+					{
+						"name": "start_g",
+						"type": "U64"
+					},
+					{
+						"name": "start_epoch",
+						"type": "U64"
+					},
+					{
+						"name": "start_scale",
+						"type": "U64"
+					},
+					{
+						"name": "ctx_epoch",
+						"type": "U64"
+					}
+				]
+			},
+			"EpochAndScale": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop",
+						"Store"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "epoch",
+						"type": "U64"
+					},
+					{
+						"name": "scale",
+						"type": "U64"
+					}
+				]
+			},
+			"FlashReceipt": {
+				"abilities": {
+					"abilities": []
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					},
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "amount",
+						"type": "U64"
+					},
+					{
+						"name": "fee",
+						"type": "U64"
+					}
+				]
+			},
+			"TANK": {
+				"abilities": {
+					"abilities": [
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "dummy_field",
+						"type": "Bool"
+					}
+				]
+			},
+			"Tank": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					},
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "reserve",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "collateral_pool",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "current_p",
+						"type": "U64"
+					},
+					{
+						"name": "current_epoch",
+						"type": "U64"
+					},
+					{
+						"name": "epoch_scale_sum_map",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "table",
+								"name": "Table",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "tank",
+											"name": "EpochAndScale",
+											"typeArguments": []
+										}
+									},
+									"U64"
+								]
+							}
+						}
+					},
+					{
+						"name": "current_scale",
+						"type": "U64"
+					},
+					{
+						"name": "bkt_pool",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bkt",
+											"name": "BKT",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "epoch_scale_gain_map",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "table",
+								"name": "Table",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "tank",
+											"name": "EpochAndScale",
+											"typeArguments": []
+										}
+									},
+									"U64"
+								]
+							}
+						}
+					},
+					{
+						"name": "total_flash_loan_amount",
+						"type": "U64"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"absorb": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					},
+					"U64"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"airdrop_bkt": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"airdrop_collateral": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"claim": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "ContributorToken",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				]
+			},
+			"collect_bkt": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"deposit": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "ContributorToken",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								},
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					}
+				]
+			},
+			"get_bkt_pool_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_bkt_reward_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "ContributorToken",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_collateral_pool_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_collateral_reward_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "ContributorToken",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_contributor_token_value": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "ContributorToken",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64",
+					"U64",
+					"U64",
+					"U64",
+					"U64",
+					"U64"
+				]
+			},
+			"get_current_epoch": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_current_p": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_current_scale": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_epoch_scale_gain_map": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					"U64",
+					"U64"
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_epoch_scale_sum_map": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					"U64",
+					"U64"
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_receipt_info": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "FlashReceipt",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64",
+					"U64"
+				]
+			},
+			"get_reserve_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_token_ctx_epoch": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "ContributorToken",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_token_weight": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "ContributorToken",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_total_flash_loan_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"handle_flash_borrow": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					"U64"
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								},
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					}
+				]
+			},
+			"handle_flash_repay": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "FlashReceipt",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								},
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"is_not_locked": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"Bool"
+				]
+			},
+			"new": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "Tank",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								},
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					}
+				]
+			},
+			"new_table": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "table",
+							"name": "Table",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "tank",
+										"name": "EpochAndScale",
+										"typeArguments": []
+									}
+								},
+								"U64"
+							]
+						}
+					}
+				]
+			},
+			"withdraw": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					},
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "tank",
+								"name": "Tank",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									},
+									{
+										"TypeParameter": 1
+									}
+								]
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "tank",
+							"name": "ContributorToken",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								},
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 1
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "tank_events",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "tank"
+			}
+		],
+		"structs": {
+			"Absorb": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "tank_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"CollectBKT": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "tank_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "bkt_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"Deposite": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "tank_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"Withdraw": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "tank_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "buck_amount",
+						"type": "U64"
+					},
+					{
+						"name": "collateral_amount",
+						"type": "U64"
+					},
+					{
+						"name": "bkt_amount",
+						"type": "U64"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"emit_absorb": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64",
+					"U64"
+				],
+				"return": []
+			},
+			"emit_collect_bkt": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_deposit": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_withdraw": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64",
+					"U64",
+					"U64"
+				],
+				"return": []
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "well",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "buck"
+			}
+		],
+		"structs": {
+			"StakedBKT": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "stake_amount",
+						"type": "U64"
+					},
+					{
+						"name": "start_s",
+						"type": "U128"
+					},
+					{
+						"name": "stake_weight",
+						"type": "U64"
+					},
+					{
+						"name": "lock_until",
+						"type": "U64"
+					}
+				]
+			},
+			"WELL": {
+				"abilities": {
+					"abilities": [
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "dummy_field",
+						"type": "Bool"
+					}
+				]
+			},
+			"Well": {
+				"abilities": {
+					"abilities": [
+						"Store",
+						"Key"
+					]
+				},
+				"typeParameters": [
+					{
+						"constraints": {
+							"abilities": []
+						},
+						"isPhantom": true
+					}
+				],
+				"fields": [
+					{
+						"name": "id",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "object",
+								"name": "UID",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "shared_pool",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "reserve",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "staked",
+						"type": {
+							"Struct": {
+								"address": "0x2",
+								"module": "balance",
+								"name": "Balance",
+								"typeArguments": [
+									{
+										"Struct": {
+											"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+											"module": "bkt",
+											"name": "BKT",
+											"typeArguments": []
+										}
+									}
+								]
+							}
+						}
+					},
+					{
+						"name": "total_weight",
+						"type": "U64"
+					},
+					{
+						"name": "current_s",
+						"type": "U128"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"airdrop": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"claim": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "StakedBKT",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"collect_fee": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				],
+				"return": []
+			},
+			"force_unstake": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktTreasury",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "well",
+							"name": "StakedBKT",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"get_reward_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "StakedBKT",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_token_lock_until": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "StakedBKT",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_token_penalty_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "StakedBKT",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					"U64"
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_token_stake_amount": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "StakedBKT",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_token_stake_weight": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "StakedBKT",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_well_pool_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_well_reserve_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_well_staked_balance": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"get_well_total_weight": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					"U64"
+				]
+			},
+			"new": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "well",
+							"name": "Well",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"stake": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					"U64",
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "tx_context",
+								"name": "TxContext",
+								"typeArguments": []
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "well",
+							"name": "StakedBKT",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"unstake": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0x2",
+								"module": "clock",
+								"name": "Clock",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					},
+					{
+						"Struct": {
+							"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+							"module": "well",
+							"name": "StakedBKT",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"Struct": {
+										"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+										"module": "bkt",
+										"name": "BKT",
+										"typeArguments": []
+									}
+								}
+							]
+						}
+					},
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			},
+			"withdraw_reserve": {
+				"visibility": "Public",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					{
+						"Reference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "bkt",
+								"name": "BktAdminCap",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"MutableReference": {
+							"Struct": {
+								"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+								"module": "well",
+								"name": "Well",
+								"typeArguments": [
+									{
+										"TypeParameter": 0
+									}
+								]
+							}
+						}
+					}
+				],
+				"return": [
+					{
+						"Struct": {
+							"address": "0x2",
+							"module": "balance",
+							"name": "Balance",
+							"typeArguments": [
+								{
+									"TypeParameter": 0
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		"fileFormatVersion": 6,
+		"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+		"name": "well_events",
+		"friends": [
+			{
+				"address": "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2",
+				"name": "well"
+			}
+		],
+		"structs": {
+			"Claim": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "well_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "reward_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"CollectFee": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "well_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "fee_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"Penalty": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "well_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "penalty_amount",
+						"type": "U64"
+					}
+				]
+			},
+			"Stake": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "well_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "stake_amount",
+						"type": "U64"
+					},
+					{
+						"name": "stake_weight",
+						"type": "U64"
+					},
+					{
+						"name": "lock_time",
+						"type": "U64"
+					}
+				]
+			},
+			"Unstake": {
+				"abilities": {
+					"abilities": [
+						"Copy",
+						"Drop"
+					]
+				},
+				"typeParameters": [],
+				"fields": [
+					{
+						"name": "well_type",
+						"type": {
+							"Struct": {
+								"address": "0x1",
+								"module": "ascii",
+								"name": "String",
+								"typeArguments": []
+							}
+						}
+					},
+					{
+						"name": "unstake_amount",
+						"type": "U64"
+					},
+					{
+						"name": "unstake_weigth",
+						"type": "U64"
+					},
+					{
+						"name": "reward_amount",
+						"type": "U64"
+					}
+				]
+			}
+		},
+		"exposedFunctions": {
+			"emit_claim": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_collect_fee": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_penalty": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64"
+				],
+				"return": []
+			},
+			"emit_stake": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64",
+					"U64",
+					"U64"
+				],
+				"return": []
+			},
+			"emit_unstake": {
+				"visibility": "Friend",
+				"isEntry": false,
+				"typeParameters": [
+					{
+						"abilities": []
+					}
+				],
+				"parameters": [
+					"U64",
+					"U64",
+					"U64"
+				],
+				"return": []
+			}
+		}
+	}
+]
