@@ -146,7 +146,7 @@ const POOLS: PoolHeader[] = [
 old_fountain
   .bind({
     network: SuiNetwork.MAIN_NET,
-    startCheckpoint: BigInt(6367003),
+    startCheckpoint: BigInt(6_367_003),
   })
   .onEventClaimEvent(async (event, ctx) => {
     const claimed_token_address = getPackageId(event.type_arguments[1]);
@@ -172,7 +172,7 @@ old_fountain
 sbuck_fountain
   .bind({
     network: SuiNetwork.MAIN_NET,
-    startCheckpoint: BigInt(6367003),
+    startCheckpoint: BigInt(6_367_003),
   })
   .onEventClaimEvent(async (event, ctx) => {
     const claimed_token_address = getPackageId(event.type_arguments[1]);
@@ -198,7 +198,7 @@ sbuck_fountain
 strap_fountain
   .bind({
     network: SuiNetwork.MAIN_NET,
-    startCheckpoint: BigInt(6367003),
+    startCheckpoint: BigInt(6_367_003),
   })
   .onEventClaimEvent(async (event, ctx) => {
     const claimed_token_address = getPackageId(event.type_arguments[1]);
