@@ -1,5 +1,3 @@
-import { sui_system, validator } from "@sentio/sdk/sui/builtin/0x3";
-
 import { SuiNetwork, SuiObjectProcessor } from "@sentio/sdk/sui";
 import { fountain_core as old_fountain } from "./types/sui/old_fountain.js";
 import { fountain_core as sbuck_fountain } from "./types/sui/sbuck_fountain.js";
@@ -7,11 +5,20 @@ import { fountain as strap_fountain } from "./types/sui/strap_fountain.js";
 import { getPriceBySymbol } from "@sentio/sdk/utils";
 import { normalizeSuiAddress } from "@mysten/sui.js/utils";
 import { SuiMoveObject } from "@mysten/sui.js/client";
+import { bucket_events } from "./types/sui/0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2.js";
+import { BigDecimal } from "@sentio/sdk";
 
 const SUI_CHAIN_ID = 101;
-const INCENTIVE_CLAIM_DATA = "Incentive_Claim_Data";
-const POOL_SNAPSHOT_DATA = "Pool_Snapshot_Data";
+const POOLS_TABLE = "Pools";
+const POOL_SNAPSHOT_TABLE = "Pool_Snapshot";
+const POSITION_SNAPSHOT_TABLE = "Position_Snapshot";
 const PROTOCOL_TYPE = "CDP";
+const BUCK_TYPE =
+  "0xce7ff77a83ea0cb6fd39bd8748e2ec89a3f41e8efdc3f4eb123e0ca37b184db2::buck::BUCK";
+const OUTPUT_VOL_TYPE =
+  "0xc592cdefe5ad2d062b128b6a097983e9c40a742c50abb867a5821714a628457::bucket::OutputVolume";
+const INTEREST_TABLE_TYPE =
+  "0xd9162764da404339384fe40487499dc867c3f1fa3eb870381c41a8b41458b0e5::interest::InterestTable";
 
 type PoolType = "BUCKET" | "PIPE" | "PSM";
 
@@ -84,32 +91,6 @@ const POOLS: PoolHeader[] = [
     poolType: "BUCKET",
   },
 
-  // PIPE
-  {
-    name: "vSUI cToken",
-    poolId:
-      "0xcbe804c8c334dcadecd4ba05ee10cffa54dad36f279ab4ec9661d67f9372881c",
-    poolType: "PIPE",
-  },
-  {
-    name: "afSUI sCoin",
-    poolId:
-      "0x508da82c0b6785653f638b95ebf7c89d720ecffae15c4d0526228a2edae7d429",
-    poolType: "PIPE",
-  },
-  {
-    name: "haSUI cToken",
-    poolId:
-      "0xef1ff1334c1757d8e841035090d34b17b7aa3d491a3cb611319209169617518e",
-    poolType: "PIPE",
-  },
-  {
-    name: "ETH sCoin",
-    poolId:
-      "0xf4946f3a140e3dbcc26192d83834d16c169f9ab3321a73a15a4d65536cb3d103",
-    poolType: "PIPE",
-  },
-
   // PSM
   {
     name: "USDC",
@@ -143,107 +124,99 @@ const POOLS: PoolHeader[] = [
   },
 ];
 
-old_fountain
-  .bind({
-    network: SuiNetwork.MAIN_NET,
-    startCheckpoint: BigInt(6_367_003),
-  })
-  .onEventClaimEvent(async (event, ctx) => {
-    const claimed_token_address = getPackageId(event.type_arguments[1]);
-    const { symbol, decimal } = getTokenInfo(claimed_token_address);
-    const claimed_token_amount =
-      Number(event.data_decoded.reward_amount) / 10 ** decimal;
-    const timestamp = Number(event.timestampMs);
-    const tokenPrice =
-      (await getPriceBySymbol(symbol, new Date(timestamp))) ?? 1;
-    ctx.eventLogger.emit(INCENTIVE_CLAIM_DATA, {
-      timestamp,
-      chain_id: SUI_CHAIN_ID,
-      transaction_hash: ctx.transaction.digest,
-      log_index: ctx.eventIndex,
-      user_address: ctx.address,
-      claimed_token_address,
-      claimed_token_amount,
-      claimed_token_usd: claimed_token_amount * tokenPrice,
-      other_incentive_usd: 0,
-    });
-  });
-
-sbuck_fountain
-  .bind({
-    network: SuiNetwork.MAIN_NET,
-    startCheckpoint: BigInt(6_367_003),
-  })
-  .onEventClaimEvent(async (event, ctx) => {
-    const claimed_token_address = getPackageId(event.type_arguments[1]);
-    const { symbol, decimal } = getTokenInfo(claimed_token_address);
-    const claimed_token_amount =
-      Number(event.data_decoded.reward_amount) / 10 ** decimal;
-    const timestamp = Number(event.timestampMs);
-    const tokenPrice =
-      (await getPriceBySymbol(symbol, new Date(timestamp))) ?? 1;
-    ctx.eventLogger.emit(INCENTIVE_CLAIM_DATA, {
-      timestamp,
-      chain_id: SUI_CHAIN_ID,
-      transaction_hash: ctx.transaction.digest,
-      log_index: ctx.eventIndex,
-      user_address: ctx.address,
-      claimed_token_address,
-      claimed_token_amount,
-      claimed_token_usd: claimed_token_amount * tokenPrice,
-      other_incentive_usd: 0,
-    });
-  });
-
-strap_fountain
-  .bind({
-    network: SuiNetwork.MAIN_NET,
-    startCheckpoint: BigInt(6_367_003),
-  })
-  .onEventClaimEvent(async (event, ctx) => {
-    const claimed_token_address = getPackageId(event.type_arguments[1]);
-    const { symbol, decimal } = getTokenInfo(claimed_token_address);
-    const claimed_token_amount =
-      Number(event.data_decoded.reward_amount) / 10 ** decimal;
-    const timestamp = Number(event.timestampMs);
-    const tokenPrice =
-      (await getPriceBySymbol(symbol, new Date(timestamp))) ?? 1;
-    ctx.eventLogger.emit(INCENTIVE_CLAIM_DATA, {
-      timestamp,
-      chain_id: SUI_CHAIN_ID,
-      transaction_hash: ctx.transaction.digest,
-      log_index: ctx.eventIndex,
-      user_address: ctx.address,
-      claimed_token_address,
-      claimed_token_amount,
-      claimed_token_usd: claimed_token_amount * tokenPrice,
-      other_incentive_usd: 0,
-    });
-  });
-
-POOLS.map((info) => {
+POOLS.map((info, idx) => {
   SuiObjectProcessor.bind({
     objectId: info.poolId,
     network: SuiNetwork.MAIN_NET,
     startCheckpoint: BigInt(58_907_211),
   }).onTimeInterval(async (obj, dofs, ctx) => {
-    const { symbol, balance, tokenAddress } = getPoolInfo(obj, info.poolType);
-    const timestamp = ctx.timestamp.getTime();
-    const tokenPrice =
-      (await getPriceBySymbol(symbol, new Date(timestamp))) ?? 1;
-    ctx.eventLogger.emit(POOL_SNAPSHOT_DATA, {
-      timestamp,
-      block_data: formatDate(timestamp),
+    const { symbol, tokenAddress, balance } = getPoolInfo(obj, info.poolType);
+    const outputVolumeObj = dofs.filter((dof) => dof.type === OUTPUT_VOL_TYPE);
+    const interestTableObj = dofs.filter(
+      (dof) => dof.type === INTEREST_TABLE_TYPE,
+    );
+    const totalBalance =
+      balance + outputVolumeObj.length > 0
+        ? Number((outputVolumeObj[0].fields as any).value.fields.volume)
+        : 0;
+    const interestRate =
+      new BigDecimal((interestTableObj[0].fields as any).interest_rate)
+        .multipliedBy("315360000000000")
+        .dividedBy("1000000000000000000000000000")
+        .toNumber() / 100;
+    const buckStrings = BUCK_TYPE.split("::");
+    const price = (await getPriceBySymbol(symbol, ctx.timestamp)) ?? 1;
+    const buckMintedAmount = (obj.fields as any).minted_buck_amount;
+    const totalCollateralUsd = totalBalance * price;
+    ctx.eventLogger.emit(POOLS_TABLE, {
       chain_id: SUI_CHAIN_ID,
-      protocol_type: PROTOCOL_TYPE,
+      creation_block_number: 58_907_211,
+      timestamp: ctx.timestamp.getTime(),
+      block_data: formatDate(ctx.timestamp),
+      underlying_token_address: tokenAddress,
+      underlying_token_symbol: symbol,
+      receipt_token_address: buckStrings[0],
+      receipt_token_symbol: buckStrings[2],
       pool_address: info.poolId,
-      pool_name: info.name,
-      total_value_locked_usd: balance * tokenPrice,
+      pool_type: PROTOCOL_TYPE,
+    });
+    ctx.eventLogger.emit(POOL_SNAPSHOT_TABLE, {
+      timestamp: ctx.timestamp.getTime(),
+      block_date: formatDate(ctx.timestamp),
+      chain_id: SUI_CHAIN_ID,
+      pool_address: info.poolId,
+      underlying_token_address: tokenAddress,
+      underlying_token_symbol: symbol,
+      underlying_token_price_usd: price,
+      available_amount: buckMintedAmount,
+      supplied_amount: totalBalance,
+      supplied_amount_usd: totalCollateralUsd,
+      non_recursive_supplied_amount: totalBalance,
+      collateral_factor: (buckMintedAmount / totalCollateralUsd) * 100,
+      supply_index: idx,
       supply_apr: 0,
-      supply_apy: 0,
+      borrow_amount: buckMintedAmount,
+      borrowed_amount_usd: buckMintedAmount,
+      borrow_index: 0,
+      borrow_apr: interestRate,
     });
   });
 });
+
+bucket_events
+  .bind({
+    network: SuiNetwork.MAIN_NET,
+    startCheckpoint: BigInt(6_367_003),
+  })
+  .onEventBottleUpdated(async (event, ctx) => {
+    const { symbol, decimal, address } = getTokenInfo(
+      event.data_decoded.collateral_type.split("::")[0],
+    );
+    const collateralAmount = event.data_decoded.collateral_amount
+      .asBigDecimal()
+      .dividedBy(10 ** decimal)
+      .toNumber();
+    const buckAmount = event.data_decoded.buck_amount
+      .asBigDecimal()
+      .dividedBy(10 ** 9)
+      .toNumber();
+    const price = (await getPriceBySymbol(symbol, ctx.timestamp)) ?? 1;
+    ctx.eventLogger.emit(POSITION_SNAPSHOT_TABLE, {
+      timestamp: ctx.timestamp.getTime(),
+      block_date: ctx.timestamp.toISOString().split("T")[0],
+      chain_id: SUI_CHAIN_ID,
+      pool_address: getPoolAddress(symbol),
+      underlying_token_address: address,
+      underlying_token_symbol: symbol,
+      user_address: event.sender,
+      supplied_amount: collateralAmount,
+      supplied_amount_usd: collateralAmount * price,
+      borrowed_amount: buckAmount,
+      borrowed_amount_usd: buckAmount,
+      collateral_amount: collateralAmount,
+      collateral_amount_usd: collateralAmount * price,
+    });
+  });
 
 function getPackageId(str: string): string {
   return normalizeSuiAddress(str.split("::")[0]);
@@ -270,6 +243,12 @@ function getTokenInfo(tokenAddr: string): TokenInfo {
       return { symbol: "NAVX", decimal: 9, address };
     case "0xc060006111016b8a020ad5b33834984a437aaa7d3c74c18e09a95d48aceab08c":
       return { symbol: "USDT", decimal: 6, address };
+    case "0x8d1aee27f8537c06d19c16641f27008caafc42affd2d2fb7adb96919470481ec":
+      return { symbol: "CETUS_STABLE_LP", decimal: 9, address };
+    case "0xcffc684610db2d1956cfb25858678be8ea96d2766b4c756d4096abd38461f40a":
+      return { symbol: "FLOWX_STABLE_LP", decimal: 6, address };
+    case "0x08a7a3c873402d7cf9d44192aae337e0b27a72c2a4a230d10230488cf614c5a2":
+      return { symbol: "SCALLOP_STABLE_SCOIN", decimal: 6, address };
     default:
       return { symbol: "USDC", decimal: 6, address };
   }
@@ -289,15 +268,19 @@ function getPoolInfo(obj: SuiMoveObject, pType: PoolType): PoolInfo {
   let balance = 0;
   if (pType === "BUCKET") {
     balance = Number((obj.fields as any).collateral_vault) / 10 ** decimal;
-  } else if (pType === "PIPE") {
-    balance = Number((obj.fields as any).output_volume) / 10 ** decimal;
   } else if (pType === "PSM") {
     balance = Number((obj.fields as any).pool) / 10 ** decimal;
   }
   return { symbol, tokenAddress, balance };
 }
 
-function formatDate(timestamp: number): string {
-  const [date, time] = new Date(timestamp).toISOString().split("T");
-  return `${date} ${time.split(":")[0]}:00:00`;
+function formatDate(d: Date): string {
+  return d.toISOString().split("T")[0];
+}
+
+function getPoolAddress(symbol: string): string {
+  return (
+    POOLS.find((pool) => pool.name === symbol)?.poolId ??
+    "0xca4f4781342cfd66ff8e3d52862c1c82c7c1dd641c142e368939ca0e0efbb3d2"
+  );
 }
